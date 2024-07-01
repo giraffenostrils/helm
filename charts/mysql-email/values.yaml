@@ -1,0 +1,75 @@
+replicaCount: 1
+
+image:
+  repository: mysql
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 3306
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
+resources: {}
+
+livenessProbe:
+  initialDelaySeconds: 10
+  failureThreshold: 3
+  successThreshold: 1
+  tcpSocket:
+    port: 3306
+
+readinessProbe:
+  initialDelaySeconds: 10
+  failureThreshold: 3
+  successThreshold: 1
+  tcpSocket:
+    port: 3306
+
+env:
+  - name: "MYSQL_ROOT_PASSWORD"
+    value: "1234"
+  - name: "MYSQL_DATABASE"
+    value: "nodagi_email"
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+
+volumes: []
+
+volumeMounts: []
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

@@ -1,0 +1,25 @@
+apiVersion: v2
+name: auth
+description: A Helm chart for Kubernetes
+
+type: application
+
+version: 0.1.0
+appVersion: "1.0"
+
+dependencies:
+  - name: server-auth
+    version: 1.0.0
+    repository: "file://../server-auth"
+  - name: mysql-auth
+    version: 1.0.0
+    repository: "file://../mysql-auth"
+  - name: redis
+    version: 1.0.0
+    repository: "file://../redis"
+  - name: server-email
+    version: 1.0.0
+    repository: "file://../server-email"
+  - name: mysql-email
+    version: 1.0.0
+    repository: "file://../mysql-email"
