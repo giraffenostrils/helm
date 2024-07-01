@@ -73,6 +73,8 @@ env:
     value: "create"
   - name: "SPRING_JPA_DATABASE_PLATFORM"
     value: "org.hibernate.dialect.MySQLDialect"
+  - name: "redis"
+    value: "auth-redis"
 
 autoscaling:
   enabled: false
