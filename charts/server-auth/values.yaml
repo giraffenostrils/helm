@@ -71,6 +71,8 @@ env:
     value: "create"
   - name: "SPRING_JPA_DATABASE_PLATFORM"
     value: "org.hibernate.dialect.MySQLDialect"
+  - name: "KAFKAJS_NO_PARTITIONER_WARNING"
+    value: "1"    
     
 autoscaling:
   enabled: false
